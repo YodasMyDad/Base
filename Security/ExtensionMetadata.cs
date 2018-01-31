@@ -15,7 +15,7 @@ namespace Security
              };
         public IEnumerable<Script> Scripts => new Script[]
         {
-            new Script("/Scripts.security_user.min.js",710),
+            new Script("/Scripts.security_user.min.js",710, "security_user"),
         };
 
         public IEnumerable<MenuGroup> MenuGroups => new MenuGroup[]
