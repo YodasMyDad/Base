@@ -15,14 +15,18 @@ namespace Barebone.ViewComponents
         {
         }
 
-        public Task<IViewComponentResult> InvokeAsync()
+        public Task<IViewComponentResult> InvokeAsync(string section_)
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            ScriptsViewModel model = new ScriptsViewModelFactory().Create();
+            ScriptsViewModel model = new ScriptsViewModelFactory().Create(section_);
             watch.Stop();
             LoggerFactory.CreateLogger<ScriptsViewComponent>().LogInformation("Time to build scripts list by ScriptsViewModelFactory: " + watch.ElapsedMilliseconds + " ms");
-            return Task.FromResult<IViewComponentResult>(View(model));
+            // When asking for scripts not linked to a section, the scripts will be included in _Layout.cshtml so rendered as a list of scripts.
+            // Else, they're surrounded by the section declaration.
+            if (string.IsNullOrWhiteSpace(section_))
+                return Task.FromResult<IViewComponentResult>(View(model));
+            return Task.FromResult<IViewComponentResult>(View("_ScriptsSection", model));
         }
 
 

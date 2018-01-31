@@ -8,6 +8,14 @@ namespace Barebone.ViewModels.Shared.Scripts
 {
     public class ScriptsViewModel
     {
+        /// <summary>
+        /// The scripts to use on page.
+        /// </summary>
         public IEnumerable<ScriptViewModel> Scripts { get; set; }
+
+        /// <summary>
+        /// All the sections used by scripts.
+        /// </summary>
+        public IEnumerable<string> Sections { get; set; }
     }
 }

@@ -28,6 +28,8 @@
     <None Remove="node_modules\inputmask\dist\min\inputmask\phone-codes\phone-nl.min.js" />
     <None Remove="node_modules\inputmask\dist\min\inputmask\phone-codes\phone-ru.min.js" />
     <None Remove="node_modules\inputmask\dist\min\inputmask\phone-codes\phone-uk.min.js" />
+    <None Remove="Views\Shared\Components\ScriptsRenderSection\Default.cshtml" />
+    <None Remove="Views\Shared\_ScriptsSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="node_modules\jquery\dist\jquery.min.js" />
